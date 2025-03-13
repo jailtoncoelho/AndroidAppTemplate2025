@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidAppTemplate"
+rootProject.name = "WorkEasy"
 include(":app")
  
