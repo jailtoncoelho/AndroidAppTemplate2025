@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate.ui.dashboard
+package com.eliphaz.fitcraft.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

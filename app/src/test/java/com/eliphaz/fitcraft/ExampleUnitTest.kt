@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate
+package com.eliphaz.fitcraft
 
 import org.junit.Test
 

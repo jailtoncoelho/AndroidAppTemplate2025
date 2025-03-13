@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate
+package com.eliphaz.fitcraft
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
