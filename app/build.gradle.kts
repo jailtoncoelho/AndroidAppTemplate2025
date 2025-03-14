@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.jailton.androidapptemplate"
+    namespace = "com.lorenzo.cordnet"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.jailton.androidapptemplate"
+        applicationId = "com.lorenzo.cordnet"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

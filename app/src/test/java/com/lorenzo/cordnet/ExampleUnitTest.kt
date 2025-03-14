@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate
+package com.lorenzo.cordnet
 
 import org.junit.Test
 
