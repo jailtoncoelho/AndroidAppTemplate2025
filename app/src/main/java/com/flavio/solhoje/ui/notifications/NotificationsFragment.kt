@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate.ui.notifications
+package com.flavio.solhoje.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.jailton.androidapptemplate.databinding.FragmentNotificationsBinding
+import com.flavio.solhoje.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
 
