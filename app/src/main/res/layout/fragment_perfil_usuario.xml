@@ -34,7 +34,7 @@
     <EditText
         android:id="@+id/registerNameEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Nome"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
     <EditText
         android:id="@+id/registerEmailEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/registerNameEditText"
@@ -54,7 +54,7 @@
     <EditText
         android:id="@+id/registerEnderecoEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Endereço"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
     <EditText
         android:id="@+id/registerPasswordEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Senha"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/registerEnderecoEditText"
