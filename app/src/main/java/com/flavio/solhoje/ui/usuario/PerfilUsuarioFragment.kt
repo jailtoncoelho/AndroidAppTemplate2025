@@ -31,6 +31,7 @@ class PerfilUsuarioFragment : Fragment() {
     private lateinit var registerNameEditText: EditText
     private lateinit var registerEmailEditText: EditText
     private lateinit var registerEnderecoEditText: EditText
+    private lateinit var registernovoCampoEditText: EditText
     private lateinit var registerPasswordEditText: EditText
     private lateinit var registerConfirmPasswordEditText: EditText
     private lateinit var registerButton: Button
@@ -56,6 +57,7 @@ class PerfilUsuarioFragment : Fragment() {
         registerNameEditText = view.findViewById(R.id.registerNameEditText)
         registerEmailEditText = view.findViewById(R.id.registerEmailEditText)
         registerEnderecoEditText = view.findViewById(R.id.registerEnderecoEditText)
+        registernovoCampoEditText = view.findViewById(R.id.registernovoCampoEditText)
         registerPasswordEditText = view.findViewById(R.id.registerPasswordEditText)
         registerConfirmPasswordEditText = view.findViewById(R.id.registerConfirmPasswordEditText)
         registerButton = view.findViewById(R.id.registerButton)
@@ -92,6 +94,7 @@ class PerfilUsuarioFragment : Fragment() {
             signOut()
         }
 
+
         return view
     }
 
@@ -117,6 +120,7 @@ class PerfilUsuarioFragment : Fragment() {
             registerNameEditText.setText(userFirebase.displayName)
             registerEmailEditText.setText(userFirebase.email)
 
+
             recuperarDadosUsuario(userFirebase.uid)
         }
     }
@@ -131,6 +135,7 @@ class PerfilUsuarioFragment : Fragment() {
                     val usuario = snapshot.getValue(Usuario::class.java)
                     usuario?.let {
                         registerEnderecoEditText.setText(it.endereco ?: "")
+                        registernovoCampoEditText.setText(it.novoCampo ?: "")
                     }
                 }
             }
@@ -144,6 +149,7 @@ class PerfilUsuarioFragment : Fragment() {
     private fun updateUser() {
         val name = registerNameEditText.text.toString().trim()
         val endereco = registerEnderecoEditText.text.toString().trim()
+        val novoCampo = registernovoCampoEditText.toString().trim()
 
         // Acessar currentUser
         val user = auth.currentUser
@@ -151,18 +157,18 @@ class PerfilUsuarioFragment : Fragment() {
         // Verifica se o usuário atual já está definido
         if (user != null) {
             // Se o usuário já existe, atualiza os dados
-            updateProfile(user, name, endereco)
+            updateProfile(user, name, endereco, novoCampo)
         } else {
             Toast.makeText(context, "Não foi possível encontrar o usuário logado", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun updateProfile(user: FirebaseUser?, displayName: String, endereco: String) {
+    private fun updateProfile(user: FirebaseUser?, displayName: String, endereco: String, novoCampo: String) {
         val profileUpdates = UserProfileChangeRequest.Builder()
             .setDisplayName(displayName)
             .build()
 
-        val usuario = Usuario(user?.uid.toString() , displayName, user?.email, endereco, )
+        val usuario = Usuario(user?.uid.toString() , displayName, user?.email, endereco,novoCampo )
 
         user?.updateProfile(profileUpdates)
             ?.addOnCompleteListener { task ->
