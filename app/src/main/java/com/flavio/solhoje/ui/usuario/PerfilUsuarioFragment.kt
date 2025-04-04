@@ -149,7 +149,7 @@ class PerfilUsuarioFragment : Fragment() {
     private fun updateUser() {
         val name = registerNameEditText.text.toString().trim()
         val endereco = registerEnderecoEditText.text.toString().trim()
-        val novoCampo = registernovoCampoEditText.toString().trim()
+        val novoCampo = registernovoCampoEditText.text.toString().trim()
 
         // Acessar currentUser
         val user = auth.currentUser
