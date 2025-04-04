@@ -17,6 +17,7 @@ class CadastroUsuarioActivity  : AppCompatActivity() {
     private lateinit var textCadastroUsuarioTitle: TextView
     private lateinit var registerNameEditText: EditText
     private lateinit var registerEmailEditText: EditText
+    private lateinit var registerCidadeEditText: EditText
     private lateinit var registerPasswordEditText: EditText
     private lateinit var registerConfirmPasswordEditText: EditText
     private lateinit var registerButton: Button
@@ -34,6 +35,7 @@ class CadastroUsuarioActivity  : AppCompatActivity() {
         textCadastroUsuarioTitle = findViewById(R.id.textCadastroUsuarioTitle)
         registerNameEditText = findViewById(R.id.registerNameEditText)
         registerEmailEditText = findViewById(R.id.registerEmailEditText)
+        registerCidadeEditText = findViewById(R.id.registerCidadeEditText)
         registerPasswordEditText = findViewById(R.id.registerPasswordEditText)
         registerConfirmPasswordEditText = findViewById(R.id.registerConfirmPasswordEditText)
         registerButton = findViewById(R.id.registerButton)
@@ -56,10 +58,11 @@ class CadastroUsuarioActivity  : AppCompatActivity() {
     private fun createAccount() {
         val name = registerNameEditText.text.toString().trim()
         val email = registerEmailEditText.text.toString().trim()
+        val cidade = registerCidadeEditText.text.toString().trim()
         val password = registerPasswordEditText.text.toString().trim()
         val confirmPassword = registerConfirmPasswordEditText.text.toString().trim()
 
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (name.isEmpty() || email.isEmpty() || cidade.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT)
                 .show()
             return
