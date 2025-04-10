@@ -3,4 +3,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_profile">Profile</string>
+    <string name="atualiza_perfil">Atualização do Perfil do Usuário</string>
+    <string name="nome">Nome</string>
+    <string name="register_email">Email</string>
+    <string name="register_endereco">Endereço</string>
+    <string name="register_novo_campo">Novo Campo</string>
+    <string name="registersenha">Senha</string>
+    <string name="register_confirmar_senha">Confirmar Senha</string>
+    <string name="register_button_atualizar">Atualizar</string>
+    <string name="register_button_sair">Sair</string>
+    <string name="userProfilefoto_de_perfil">Foto de perfil</string>
 </resources>
