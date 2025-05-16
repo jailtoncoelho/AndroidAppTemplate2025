@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate.ui.dashboard
+package com.eliphaz.fitcraft.ui.dashboard
 
 import android.app.Activity
 import android.content.Intent
@@ -15,28 +15,29 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.eliphaz.fitcraft.databinding.FragmentDashboardBinding
 import com.bumptech.glide.Glide
+import com.eliphaz.fitcraft.baseclasses.exercicio
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.jailton.androidapptemplate.R
-import com.jailton.androidapptemplate.baseclasses.Item
-import com.jailton.androidapptemplate.databinding.FragmentDashboardBinding
 import java.util.UUID
+import com.eliphaz.fitcraft.R
 
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
 
-    private lateinit var enderecoEditText: EditText
-    private lateinit var itemImageView: ImageView
+    private lateinit var nomeExercicioEditText: EditText
+    private lateinit var repeticoesEditText: EditText
+    private lateinit var exerciocioImageView: ImageView
     private var imageUri: Uri? = null
 
 
     //TODO("Declare aqui as outras variaveis do tipo EditText que foram inseridas no layout")
-    private lateinit var salvarButton: Button
+    private lateinit var registerButton: Button
     private lateinit var selectImageButton: Button
     private lateinit var databaseReference: DatabaseReference
     private lateinit var storageReference: StorageReference
@@ -64,17 +65,18 @@ class DashboardFragment : Fragment() {
         }
 
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        itemImageView = view.findViewById(R.id.image_item)
-        salvarButton = view.findViewById(R.id.salvarItemButton)
+        exerciocioImageView = view.findViewById(R.id.image_exercicio)
+        registerButton = view.findViewById(R.id.salvarItemButton)
         selectImageButton = view.findViewById(R.id.button_select_image)
-        enderecoEditText = view.findViewById(R.id.enderecoItemEditText)
+        nomeExercicioEditText = view.findViewById(R.id.nomeExercicioEditText)
+        repeticoesEditText = view.findViewById(R.id.repeticoesEditText)
         //TODO("Capture aqui os outro campos que foram inseridos no layout. Por exemplo, ate
         // o momento so foi capturado o endereco (EditText)")
 
         auth = FirebaseAuth.getInstance()
 
         try {
-            storageReference = FirebaseStorage.getInstance().reference.child("itens_images")
+            storageReference = FirebaseStorage.getInstance().reference.child("exercicios_images")
         } catch (e: Exception) {
             Log.e("FirebaseStorage", "Erro ao obter referência para o Firebase Storage", e)
             // Trate o erro conforme necessario, por exemplo:
@@ -85,7 +87,7 @@ class DashboardFragment : Fragment() {
             openFileChooser()
         }
 
-        salvarButton.setOnClickListener {
+        registerButton.setOnClickListener {
             salvarItem()
         }
 
@@ -106,9 +108,10 @@ class DashboardFragment : Fragment() {
 
     private fun salvarItem() {
         //TODO("Capture aqui o conteudo que esta nos outros editTexts que foram criados")
-        val endereco = enderecoEditText.text.toString().trim()
+        val nomeexercicio = nomeExercicioEditText.text.toString().trim()
+        val repeticoes = repeticoesEditText.text.toString().trim()
 
-        if (endereco.isEmpty() || imageUri == null) {
+        if (nomeexercicio.isEmpty() || repeticoes.isEmpty() || imageUri == null) {
             Toast.makeText(context, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT)
                 .show()
             return
@@ -129,8 +132,9 @@ class DashboardFragment : Fragment() {
                 .addOnSuccessListener {
                     fileReference.downloadUrl.addOnSuccessListener { uri ->
                         val imageUrl = uri.toString()
-                        val endereco = enderecoEditText.text.toString().trim()
-                        val item = Item(endereco, imageUrl)
+                        val nomeexercicio = nomeExercicioEditText.text.toString().trim()
+                        val repeticoes = repeticoesEditText.text.toString().trim()
+                        val item = exercicio(nomeexercicio, repeticoes, imageUrl)
 
                         saveItemIntoDatabase(item)
                     }
@@ -148,28 +152,28 @@ class DashboardFragment : Fragment() {
             && data != null && data.data != null
         ) {
             imageUri = data.data
-            Glide.with(this).load(imageUri).into(itemImageView)
+            Glide.with(this).load(imageUri).into(exerciocioImageView)
         }
     }
 
-    private fun saveItemIntoDatabase(item: Item) {
+    private fun saveItemIntoDatabase(exercicio: exercicio ) {
         //TODO("Altere a raiz que sera criada no seu banco de dados do realtime database.
         // Renomeie a raiz itens")
-        databaseReference = FirebaseDatabase.getInstance().getReference("itens")
+        databaseReference = FirebaseDatabase.getInstance().getReference("exercicio")
 
         // Cria uma chave unica para o novo item
-        val itemId = databaseReference.push().key
-        if (itemId != null) {
-            databaseReference.child(auth.uid.toString()).child(itemId).setValue(item)
+        val exercicioID = databaseReference.push().key
+        if (exercicioID != null) {
+            databaseReference.child(auth.uid.toString()).child(exercicioID).setValue(exercicio)
                 .addOnSuccessListener {
-                    Toast.makeText(context, "Item cadastrado com sucesso!", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, "Exercício cadastrado com sucesso!", Toast.LENGTH_SHORT)
                         .show()
                     requireActivity().supportFragmentManager.popBackStack()
                 }.addOnFailureListener {
-                    Toast.makeText(context, "Falha ao cadastrar o item", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Falha ao cadastrar o exercício", Toast.LENGTH_SHORT).show()
                 }
         } else {
-            Toast.makeText(context, "Erro ao gerar o ID do item", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Erro ao gerar o ID do exercício", Toast.LENGTH_SHORT).show()
         }
     }
 }

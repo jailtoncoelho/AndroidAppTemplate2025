@@ -38,7 +38,7 @@ class CadastroUsuarioActivity  : AppCompatActivity() {
         registerCidadeEditText = findViewById(R.id.registerCidadeEditText)
         registerPasswordEditText = findViewById(R.id.registerPasswordEditText)
         registerConfirmPasswordEditText = findViewById(R.id.registerConfirmPasswordEditText)
-        registerButton = findViewById(R.id.salvarButton)
+        registerButton = findViewById(R.id.registerButton)
         sairButton = findViewById(R.id.sairButton)
 
 
