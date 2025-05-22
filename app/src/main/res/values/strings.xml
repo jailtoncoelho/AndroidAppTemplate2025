@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_profile">Profile</string>
+
     <string name="att_profile">Atualização de Usuário</string>
     <string name="profile_pic">Foto de perfil</string>
     <string name="name">Nome</string>
@@ -19,7 +20,6 @@
     <string name="cadastre_se">Cadastre-se</string>
     <string name="login_google">Login com Google</string>
     <string name="user_login">Login de Usuário</string>
-
-
+    <string name="title_itens">Itens</string>
 
 </resources>
