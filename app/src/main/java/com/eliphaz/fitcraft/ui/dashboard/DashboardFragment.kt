@@ -22,14 +22,8 @@ import com.eliphaz.fitcraft.baseclasses.exercicio
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-
-import java.util.UUID
 import com.eliphaz.fitcraft.R
-import com.eliphaz.fitcraft.baseclasses.exercicio
-import com.eliphaz.fitcraft.databinding.FragmentDashboardBinding
-import kotlinx.coroutines.CoroutineStart
 
 
 
@@ -139,10 +133,12 @@ class DashboardFragment : Fragment() {
 
             if (bytes != null) {
                 val base64Image = Base64.encodeToString(bytes, Base64.DEFAULT)
-                val endereco = enderecoEditText.text.toString().trim()
+                val nomeexercicio = nomeExercicioEditText.text.toString().trim()
+                val repeticoes = repeticoesEditText.text.toString().trim()
+                val item = exercicio(nomeexercicio, repeticoes, base64Image)
                 //TODO("Capture aqui o conteudo que esta nos outros editTexts que foram criados")
 
-                val item = Item(endereco, base64Image)
+
 
                 saveItemIntoDatabase(item)
             }

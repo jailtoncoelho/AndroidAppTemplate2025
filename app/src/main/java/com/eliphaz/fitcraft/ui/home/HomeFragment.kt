@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.eliphaz.fitcraft.R
-import com.eliphaz.fitcraft.baseclasses.Item
+import com.eliphaz.fitcraft.baseclasses.exercicio
 import com.eliphaz.fitcraft.databinding.FragmentHomeBinding
 
 
@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
     }
 
     fun carregarItensMarketplace(container: LinearLayout) {
-        val databaseRef = FirebaseDatabase.getInstance().getReference("itens")
+        val databaseRef = FirebaseDatabase.getInstance().getReference("exercicios")
 
         databaseRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -61,15 +61,18 @@ class HomeFragment : Fragment() {
 
                 for (userSnapshot in snapshot.children) {
                     for (itemSnapshot in userSnapshot.children) {
-                        val item = itemSnapshot.getValue(Item::class.java) ?: continue
+                        val item = itemSnapshot.getValue(exercicio::class.java) ?: continue
 
                         val itemView = LayoutInflater.from(container.context)
                             .inflate(R.layout.item_template, container, false)
 
                         val imageView = itemView.findViewById<ImageView>(R.id.item_image)
-                        val enderecoView = itemView.findViewById<TextView>(R.id.item_endereco)
+                        val nomeExercicioView = itemView.findViewById<TextView>(R.id.item_exercicos)
+                        val repeticioesView = itemView.findViewById<TextView>(R.id.item_exercicos)
 
-                        enderecoView.text = "Endereço: ${item.endereco ?: "Não informado"}"
+                        nomeExercicioView.text = "Nome Exercicio: ${item.nomeExercicio ?: "Não informado"}"
+                        repeticioesView.text = "Repetições: ${item.nomeExercicio ?: "Não informado"}"
+
 
                         if (!item.imageUrl.isNullOrEmpty()) {
                             Glide.with(container.context).load(item.imageUrl).into(imageView)
