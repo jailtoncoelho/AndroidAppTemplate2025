@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate.ui.firebase
+package com.eliphaz.fitcraft.ui.firebase
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -11,8 +11,8 @@ import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.jailton.androidapptemplate.MainActivity
-import com.jailton.androidapptemplate.R
+import com.eliphaz.fitcraft.MainActivity
+import com.eliphaz.fitcraft.R
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
@@ -50,9 +50,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         // TODO: Substituir a logica aqui
         val targetProgress = when (status) {
-            "em preparo" -> 33
-            "saindo para entrega" -> 66
-            "entregue" -> 100
+            "Treino iniciando" -> 1
+            "Já está na metade do treino" -> 50
+            "Treino finalizado!" -> 100
             else -> 0
         }
 
@@ -73,7 +73,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val updateRunnable = object : Runnable {
             override fun run() {
                 if (currentProgress <= targetProgress) {
-                    remoteViews.setTextViewText(R.id.status_text, "Pedido: $status")
+                    remoteViews.setTextViewText(R.id.status_text, "Treino: $status")
                     remoteViews.setProgressBar(R.id.progress_bar, 100, currentProgress, false)
                     notificationManager.notify(notificationId, builder.build())
                     currentProgress++

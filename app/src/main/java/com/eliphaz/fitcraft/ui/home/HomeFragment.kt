@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
     }
 
     fun carregarItensMarketplace(container: LinearLayout) {
-        val databaseRef = FirebaseDatabase.getInstance().getReference("exercicios")
+        val databaseRef = FirebaseDatabase.getInstance().getReference("exercicio")
 
         databaseRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -68,10 +68,10 @@ class HomeFragment : Fragment() {
 
                         val imageView = itemView.findViewById<ImageView>(R.id.item_image)
                         val nomeExercicioView = itemView.findViewById<TextView>(R.id.item_exercicos)
-                        val repeticioesView = itemView.findViewById<TextView>(R.id.item_exercicos)
+                        val repeticioesView = itemView.findViewById<TextView>(R.id.item_repeticoes)
 
                         nomeExercicioView.text = "Nome Exercicio: ${item.nomeExercicio ?: "Não informado"}"
-                        repeticioesView.text = "Repetições: ${item.nomeExercicio ?: "Não informado"}"
+                        repeticioesView.text = "Repetições: ${item.repeticoes ?: "Não informado"}"
 
 
                         if (!item.imageUrl.isNullOrEmpty()) {

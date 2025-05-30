@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/status_text"
-        android:text="Status do pedido"
+        android:text="Status do treino"
         android:textStyle="bold"
         android:textSize="16sp"
         android:layout_width="wrap_content"
@@ -18,7 +18,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:progress="33"
         android:max="100"
-        android:progressDrawable="@drawable/progress_bar_drawable" />
+        android:progress="33"
+        android:progressDrawable="@drawable/progress_bar_drawable"
+        android:progressTint="#FF9800" />
 </LinearLayout>
