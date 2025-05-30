@@ -25,10 +25,18 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/item_endereco"
+                android:id="@+id/item_exercicos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Endereço:"
+                android:text="Exercicio:"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/item_repeticoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Repetições:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
