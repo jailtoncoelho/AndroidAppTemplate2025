@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate.ui.dashboard
+package com.flavio.solhoje.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +13,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.jailton.androidapptemplate.R
-import com.jailton.androidapptemplate.baseclasses.Item
-import com.jailton.androidapptemplate.databinding.FragmentDashboardBinding
+import com.flavio.solhoje.R
+import com.flavio.solhoje.baseclasses.Item
+import com.flavio.solhoje.databinding.FragmentDashboardBinding
 import kotlinx.coroutines.CoroutineStart
 
 
