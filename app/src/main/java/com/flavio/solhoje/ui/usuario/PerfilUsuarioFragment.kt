@@ -60,7 +60,7 @@ class PerfilUsuarioFragment : Fragment() {
         registernovoCampoEditText = view.findViewById(R.id.registernovoCampoEditText)
         registerPasswordEditText = view.findViewById(R.id.registerPasswordEditText)
         registerConfirmPasswordEditText = view.findViewById(R.id.registerConfirmPasswordEditText)
-        registerButton = view.findViewById(R.id.registerButton)
+        registerButton = view.findViewById(R.id.salvarButton)
         sairButton = view.findViewById(R.id.sairButton)
 
         try {
@@ -184,7 +184,6 @@ class PerfilUsuarioFragment : Fragment() {
     }
 
     private fun saveUserToDatabase(usuario: Usuario) {
-        // Cria uma chave única para a nova loja
         if (usuario.key != null) {
             usersReference.child(usuario.key.toString()).setValue(usuario)
                 .addOnSuccessListener {
