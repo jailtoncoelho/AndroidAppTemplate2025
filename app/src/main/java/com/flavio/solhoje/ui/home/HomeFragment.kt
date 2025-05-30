@@ -1,4 +1,4 @@
-package com.flavio.solhoje.ui.home
+package com.jailton.androidapptemplate.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.flavio.solhoje.ui.dashboard
+package com.jailton.androidapptemplate.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.flavio.solhoje.databinding.FragmentDashboardBinding
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.jailton.androidapptemplate.R
+import com.jailton.androidapptemplate.baseclasses.Item
+import com.jailton.androidapptemplate.databinding.FragmentDashboardBinding
+import kotlinx.coroutines.CoroutineStart
+
 
 class DashboardFragment : Fragment() {
 
