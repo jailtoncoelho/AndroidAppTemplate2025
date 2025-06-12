@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate.ui.login
+package com.flavio.solhoje.ui.login
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -19,9 +19,9 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.jailton.androidapptemplate.MainActivity
-import com.jailton.androidapptemplate.R
-import com.jailton.androidapptemplate.ui.usuario.CadastroUsuarioActivity
+import com.flavio.solhoje.MainActivity
+import com.flavio.solhoje.R
+import com.flavio.solhoje.ui.usuario.CadastroUsuarioActivity
 
 class LoginActivity : AppCompatActivity() {
 

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.jailton.androidapptemplate"
+    namespace = "com.flavio.solhoje"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.jailton.androidapptemplate"
+        applicationId = "com.flavio.solhoje"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -47,7 +47,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.common.ktx)
     implementation(libs.firebase.database.ktx)
@@ -60,8 +59,10 @@ dependencies {
     implementation(libs.firebase.crashlytics.buildtools)
     implementation(libs.jetbrains.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
-
-
+    implementation(libs.play.services.location)
+    implementation(libs.jetbrains.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.firebase.messaging.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

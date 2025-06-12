@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate.ui.dashboard
+package com.flavio.solhoje.ui.dashboard
 
 import android.app.Activity
 import android.content.Intent
@@ -22,9 +22,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.jailton.androidapptemplate.R
-import com.jailton.androidapptemplate.baseclasses.Item
-import com.jailton.androidapptemplate.databinding.FragmentDashboardBinding
+import com.flavio.solhoje.R
+import com.flavio.solhoje.baseclasses.Item
+import com.flavio.solhoje.databinding.FragmentDashboardBinding
 import kotlinx.coroutines.CoroutineStart
 
 
@@ -78,8 +78,8 @@ class DashboardFragment : Fragment() {
         try {
             //val storage = FirebaseStorage.getInstance()
             //storageReference = FirebaseStorage.getInstance()
-                //.getReferenceFromUrl("gs://apptemplate-35820.appspot.com")
-                //.child("itens_images")
+            //.getReferenceFromUrl("gs://apptemplate-35820.appspot.com")
+            //.child("itens_images")
             //storageReference = FirebaseStorage.getInstance().getReference().child("itens_images")
         } catch (e: Exception) {
             Log.e("FirebaseStorage", "Erro ao obter referência para o Firebase Storage", e)

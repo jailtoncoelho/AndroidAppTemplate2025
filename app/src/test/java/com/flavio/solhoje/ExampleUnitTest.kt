@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate
+package com.flavio.solhoje
 
 import org.junit.Test
 
