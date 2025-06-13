@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-<<<<<<<<< Temporary merge branch 1:app/src/main/java/com/flavio/solhoje/ui/home/HomeFragment.kt
 import androidx.lifecycle.ViewModelProvider
 import com.flavio.solhoje.databinding.FragmentHomeBinding
-=========
 import android.util.Base64
 import android.widget.*
 import android.graphics.BitmapFactory
@@ -22,9 +20,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.jailton.androidapptemplate.R
-import com.jailton.androidapptemplate.baseclasses.Item
-import com.jailton.androidapptemplate.databinding.FragmentHomeBinding
+import com.flavio.solhoje.R
+import com.flavio.solhoje.baseclasses.Item
 
 class HomeFragment : Fragment() {
 
