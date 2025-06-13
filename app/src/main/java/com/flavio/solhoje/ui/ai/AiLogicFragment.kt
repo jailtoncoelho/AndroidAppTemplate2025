@@ -1,4 +1,4 @@
-package com.jailton.androidapptemplate.ui.ai
+package com.flavio.solhoje.ui.ai
 
 import android.os.Bundle
 import android.view.LayoutInflater
