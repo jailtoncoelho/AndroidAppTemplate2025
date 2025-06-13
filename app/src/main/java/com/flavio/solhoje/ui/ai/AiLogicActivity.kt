@@ -2,7 +2,7 @@ package com.flavio.solhoje.ui.ai
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.jailton.androidapptemplate.R
+import com.flavio.solhoje.R
 
 class AiLogicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
